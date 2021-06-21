@@ -2,14 +2,16 @@ import React from "react";
 import { Card, Button, CardDeck } from "react-bootstrap";
 // import { FontAwesomeIcon } from "react-fontawesome";
 
-export default function JobItem({ job }) {
-  const { title, company, location, created_at, url, from} = job;
+export default function JobItem(props) {
+  console.log(props.job)
+  const handleApply = props.handleApply;
+  const { title, company, location, created_at, url, from} = props.job;
   let date = new Date(created_at);
   date = `${date.getDate()} ${date.toLocaleString("default", {
     month: "long"
   })}`;
   const iconClass = `fab fa-${from}`
-  // console.log(date);
+  console.log(date);
   return (
     <Card
       // style={{ minWidth: "18rem" }}
@@ -38,11 +40,11 @@ export default function JobItem({ job }) {
           </span>
 
           <span className="align-middle">
-            <a href={url}>
-              <Button variant="light" size="sm">
+          
+              <Button onClick={() => handleApply(props.job.id)} variant="light" size="sm">
                 Apply
               </Button>
-            </a>
+            
           </span>
         </small>
       </Card.Footer>

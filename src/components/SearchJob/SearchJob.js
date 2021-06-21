@@ -19,7 +19,8 @@ export default function SearchJob({ updateJobDetail, updateJobTitle, updateJobLo
     })
   };
   return (
-    <Form className="mb-4" onSubmit={onSubmit}>
+  <div>
+      <Form className="mb-4" onSubmit={onSubmit}>
       <InputGroup>
         <InputGroup.Prepend>
           <InputGroup.Text id="basic-addon1">
@@ -52,5 +53,7 @@ export default function SearchJob({ updateJobDetail, updateJobTitle, updateJobLo
         </Button>
       </InputGroup>
     </Form>
+
+  </div>
   );
 }
